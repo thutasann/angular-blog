@@ -1,4 +1,41 @@
 <h1 style="text-align: center;">
     Login Page
 </h1>
-<button (click)="login()">Login</button>
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+    <div class="container">
+        <mat-form-field>
+            <input  
+                matInput
+                placeholder="Email"
+                formControlName="email"
+            >
+            <mat-hint *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)">
+                Email is required
+            </mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input  
+                matInput
+                placeholder="Password"
+                formControlName="password"
+                type="password"
+            >
+            <mat-hint *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
+                Password is required
+            </mat-hint>
+        </mat-form-field>
+
+        <button
+            mat-flat-button
+            color="primary"
+            [disabled]="!loginForm.valid"
+            type="submit"
+        >
+            Login
+        </button>
+    </div>
+
+</form>
