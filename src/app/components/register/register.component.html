@@ -66,7 +66,7 @@
                 type="password"
             />
             <mat-hint
-                *ngIf="registerForm.controls['passwordConfirm'].invalid && (registerForm.controls['passwordConfirm'].dirty || registerForm.controls['passwordConfirm'].touched)"
+                *ngIf="registerForm.hasError('passwordsNotMatching') && (registerForm.controls['passwordConfirm'].dirty || registerForm.controls['passwordConfirm'].touched)"
             >
                 You need to confirm the password!
             </mat-hint>
@@ -85,3 +85,8 @@
 
     </div>
 </form>
+
+
+<h3 *ngIf="registerForm.invalid">Form contains following errors</h3>
+<small *ngIf="registerForm.get('password')?.getError('passwordInvalid')">Password is not containing a number</small> <br>
+<small *ngIf="registerForm.hasError('passwordsNotMatching')">Passwords not matching</small>
