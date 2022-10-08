@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import { ActivatedRoute, Router } from '@angular/router';
 import { map, tap } from 'rxjs';
 import { UserService } from 'src/app/services/user-service/user.service';
 import { UserListData } from 'src/types';
@@ -17,7 +18,9 @@ export class UsersComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'username', 'email', 'role'];
 
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -63,4 +66,11 @@ export class UsersComponent implements OnInit {
     ).subscribe()
   }
 
+
+  /**
+   * View Detail
+   */
+  navigateToProfile(id: any){
+    this.router.navigate(['./' + id], {relativeTo: this.activatedRoute});
+  }
 }

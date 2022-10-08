@@ -34,4 +34,10 @@ export class UserService {
       catchError(err => throwError(err))
     )
   }
+
+  findOne(id: number): Observable<User>{
+    return this.http.get('/api/users/' + id).pipe(
+      map((user: User) => user)
+    )
+  }
 }
