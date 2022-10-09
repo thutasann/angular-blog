@@ -6,7 +6,8 @@
     <mat-card class="card">
         <mat-card-header>
             <div class="mat-card-avataer">
-                <img src="http://localhost:3000/api/users/profile-image/{{user.profileImage}}" class="header-image">
+                <img *ngIf="user.profileImage" src="http://localhost:3000/api/users/profile-image/{{user.profileImage}}" class="header-image">
+                <img *ngIf="!user.profileImage" src="https://previews.123rf.com/images/kritchanut/kritchanut1406/kritchanut140600093/29213195-male-silhouette-avatar-profile-picture.jpg" class="header-image">
             </div>
             <mat-card-title>{{user.name}}</mat-card-title>
             <mat-card-subtitle>{{user.email}}</mat-card-subtitle>

@@ -17,6 +17,10 @@ export class AppComponent {
     {
       name: 'Register',
       value: 'register'
+    },
+    {
+      name: 'Update Profile',
+      value: 'update-profile'
     }
   ]
 

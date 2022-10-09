@@ -3,7 +3,7 @@
     <span routerLink="/" class="home-link">TBlog</span>
     <span class="example-spacer"></span>
     <mat-form-field style="margin-right: 20px;" name="loginRegisterDropDown">
-      <mat-select placeholder="Login" (selectionChange)="navigateTo($event.value)">
+      <mat-select (selectionChange)="navigateTo($event.value)">
         <mat-option *ngFor="let entry of entries" [value]="entry.value">
           {{entry.name}}
         </mat-option>
