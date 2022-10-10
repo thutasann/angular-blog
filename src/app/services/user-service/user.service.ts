@@ -1,5 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { id } from 'ethers/lib/utils';
 import { catchError, concatAll, map, Observable, throwError } from 'rxjs';
 import { User, UserListData } from 'src/types';
 
@@ -39,5 +40,9 @@ export class UserService {
     return this.http.get('/api/users/' + id).pipe(
       map((user: User) => user)
     )
+  }
+
+  updateOne(user: User): Observable<User>{
+    return this.http.put('/api/users/update/' + user.id, user);
   }
 }
