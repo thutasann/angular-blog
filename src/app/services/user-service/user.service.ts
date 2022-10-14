@@ -45,4 +45,11 @@ export class UserService {
   updateOne(user: User): Observable<User>{
     return this.http.put('/api/users/update/' + user.id, user);
   }
+
+  uploadProfileImage(formData: FormData): Observable<any> {
+    return this.http.post<FormData>('/api/users/upload', formData, {
+      reportProgress: true,
+      observe: 'events'
+    });
+  }
 }

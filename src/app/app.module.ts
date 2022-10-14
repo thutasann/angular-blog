@@ -20,6 +20,8 @@ import { UsersComponent } from './components/users/users.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatIconModule } from '@angular/material/icon';
 
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { UpdateUserProfileComponent } from './components/update-user-profile/update-user-profile.component';
@@ -50,7 +52,10 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
     MatSelectModule,
     MatTableModule,
     MatPaginatorModule,
-    MatCardModule
+    MatCardModule,
+    MatProgressBarModule,
+    MatIconModule
+    
   ],
   providers: [
     JwtHelperService, 
