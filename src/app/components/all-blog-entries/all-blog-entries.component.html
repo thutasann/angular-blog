@@ -1,5 +1,5 @@
 <div *ngIf="!(dataSource | async)?.items">
-    <h1>Loading...</h1>
+    Loading...
 </div>
 
 <div *ngIf="(dataSource | async)?.items" style="width: 50%; margin-left: 25%;">
@@ -24,4 +24,5 @@
     (page)="pageEvent = $event; onPaginateChange($event)"
     showFirstLastButtons>
     </mat-paginator>
+
 </div>

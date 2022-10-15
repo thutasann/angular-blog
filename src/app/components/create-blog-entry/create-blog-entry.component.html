@@ -1,0 +1,78 @@
+<form [formGroup]="form">
+
+    <div>
+
+        <mat-card class="container">
+
+            <!-- Img upload -->
+            <div style="width: 80%;">
+                <mat-card>
+                    <mat-card-content>
+                        <img 
+                            *ngIf="form.get('headerImage')?.value" 
+                            src="http://localhost:3000/api/blogs/blog-image/{{form.get('headerImage')?.value}}"
+                        />
+                        <ul>
+                            <li>
+                                <mat-progress-bar
+                                    [value]="file.progress"
+                                ></mat-progress-bar>
+                            </li>
+                        </ul>
+
+                        <mat-card-actions>
+                            <button mat-button color="warn" (click)="onClick()" type="button">
+                                <mat-icon>cloud_upload</mat-icon>
+                                <small>Upload Image</small>
+                            </button>
+                        </mat-card-actions>
+
+                    </mat-card-content>
+                </mat-card>
+                <input type="file" #fileUpload id="fileUpload" name="fileUpload" accept="image/*" style="display: none;" />
+            </div>
+
+            <!-- Blog Upload form -->
+            <div class="container" style="margin-top: 30px; width: 100%;">   
+                <mat-form-field>
+                    <input matInput type="text" placeholder="Id" formControlName="id" />
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput placeholder="Title" formControlName="title" />
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput placeholder="Description" formControlName="description" />
+                </mat-form-field>
+
+                <div style="display: flex; width: 100%; margin-top: 20px;">
+                    <mat-form-field style="width: 45%;">
+                        <!-- <input matInput placeholder="Body" formControlName="body" /> -->
+                        <textarea matInput rows="15" placeholder="Enter Markdown..." class="variable-markdown" formControlName="body"></textarea>
+                    </mat-form-field>
+
+                    <markdown
+                        [data]="form.get('body')?.value"
+                        class="variable-binding" style="border-style:dotted; width:45%; margin-left:10%;"
+                    ></markdown>
+                </div>
+
+            </div>
+
+            <button
+                mat-flat-button
+                color="primary"
+                [disabled]="form.invalid"
+                type="submit"
+                (click)="post()"
+            >   
+                Add blog
+            </button>
+
+        </mat-card>
+
+
+    </div>
+
+</form>

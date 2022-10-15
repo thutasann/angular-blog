@@ -29,6 +29,10 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { HomeComponent } from './components/home/home.component';
 import { AllBlogEntriesComponent } from './components/all-blog-entries/all-blog-entries.component';
+import { CreateBlogEntryComponent } from './components/create-blog-entry/create-blog-entry.component';
+
+
+import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   declarations: [
@@ -39,7 +43,8 @@ import { AllBlogEntriesComponent } from './components/all-blog-entries/all-blog-
     UserProfileComponent,
     UpdateUserProfileComponent,
     HomeComponent,
-    AllBlogEntriesComponent
+    AllBlogEntriesComponent,
+    CreateBlogEntryComponent
   ],
   imports: [
     BrowserModule,
@@ -58,8 +63,9 @@ import { AllBlogEntriesComponent } from './components/all-blog-entries/all-blog-
     MatPaginatorModule,
     MatCardModule,
     MatProgressBarModule,
-    MatIconModule
-    
+    MatIconModule,
+
+    MarkdownModule.forRoot()
   ],
   providers: [
     JwtHelperService, 
