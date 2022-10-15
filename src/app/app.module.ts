@@ -33,6 +33,7 @@ import { CreateBlogEntryComponent } from './components/create-blog-entry/create-
 
 
 import { MarkdownModule } from 'ngx-markdown';
+import { BlogDetailComponent } from './components/blog-detail/blog-detail.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { MarkdownModule } from 'ngx-markdown';
     UpdateUserProfileComponent,
     HomeComponent,
     AllBlogEntriesComponent,
-    CreateBlogEntryComponent
+    CreateBlogEntryComponent,
+    BlogDetailComponent
   ],
   imports: [
     BrowserModule,

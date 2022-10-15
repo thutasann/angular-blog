@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BlogDetailComponent } from './components/blog-detail/blog-detail.component';
 import { CreateBlogEntryComponent } from './components/create-blog-entry/create-blog-entry.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
@@ -57,6 +58,10 @@ const routes: Routes = [
     path: 'create-blog-entry',
     component: CreateBlogEntryComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'blog-entries/:id',
+    component: BlogDetailComponent
   }
 
 ];

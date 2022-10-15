@@ -30,4 +30,8 @@ export class BlogService {
       observe: 'events'
     });
   }
+
+  findOne(id : number): Observable<BlogEntry>{
+    return this.http.get<BlogEntry>('/api/blogs/fetch/' + id);
+  }
 }
