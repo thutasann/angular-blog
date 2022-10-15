@@ -1,0 +1,27 @@
+<div *ngIf="!(dataSource | async)?.items">
+    <h1>Loading...</h1>
+</div>
+
+<div *ngIf="(dataSource | async)?.items" style="width: 50%; margin-left: 25%;">
+    <mat-card *ngFor="let blogEntry of (dataSource | async)?.items" style="margin-top: 15px;">
+        <div style="display: flex;">
+            <div>
+                <img *ngIf="blogEntry.headerImage" src="http://localhost:3000/api/blogs/blog-image/{{blogEntry.headerImage}}" />
+                <img *ngIf="!blogEntry.headerImage" src="https://previews.123rf.com/images/kritchanut/kritchanut1406/kritchanut140600093/29213195-male-silhouette-avatar-profile-picture.jpg" width="10px">
+            </div>
+            <div style="margin-left: 30px;">
+                <h2>{{blogEntry.title}}</h2>
+                <p>{{blogEntry.description}}</p>
+                <small>Author: {{blogEntry.author?.name}}</small>
+            </div>
+        </div>
+    </mat-card>
+
+    <mat-paginator
+    [length]="(dataSource | async)?.meta?.totalItems" 
+    [pageSize]="(dataSource | async)?.meta?.itemsPerPage" 
+    [pageSizeOptions]="[5,10,25,100]"
+    (page)="pageEvent = $event; onPaginateChange($event)"
+    showFirstLastButtons>
+    </mat-paginator>
+</div>

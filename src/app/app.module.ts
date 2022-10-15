@@ -27,6 +27,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { UpdateUserProfileComponent } from './components/update-user-profile/update-user-profile.component';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
+import { HomeComponent } from './components/home/home.component';
+import { AllBlogEntriesComponent } from './components/all-blog-entries/all-blog-entries.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
     RegisterComponent,
     UsersComponent,
     UserProfileComponent,
-    UpdateUserProfileComponent
+    UpdateUserProfileComponent,
+    HomeComponent,
+    AllBlogEntriesComponent
   ],
   imports: [
     BrowserModule,
