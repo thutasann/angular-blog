@@ -15,6 +15,10 @@
         <mat-card-content>
             <p>UserName: {{user.username}}</p>
             <p>Role: {{user.role}}</p>
+            <app-all-blog-entries
+                [blogEntries]="(blogEntries$ | async)"
+                (paginate)="onPaginateChange($event)"
+            ></app-all-blog-entries>
         </mat-card-content>
     </mat-card>
 </div>

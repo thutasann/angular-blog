@@ -34,4 +34,14 @@ export class BlogService {
   findOne(id : number): Observable<BlogEntry>{
     return this.http.get<BlogEntry>('/api/blogs/fetch/' + id);
   }
+
+  indexByUser(userId: number, page: number, limit: number): Observable<BlogEntriesPageable>{
+    let params = new HttpParams();
+
+    params = params.append('page', String(page));
+    params = params.append('limit', String(limit));
+
+    return this.http.get<BlogEntriesPageable>('/api/blogs/user/' + String(userId), {params});
+
+  }
 }
